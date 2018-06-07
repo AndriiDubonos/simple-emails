@@ -26,7 +26,7 @@ Requirements:
 
 Posible usecases:
 
-```
+```python
 import SimpleEmailRegister
 
 @SimpleEmailRegister.register_text('reset-password')
