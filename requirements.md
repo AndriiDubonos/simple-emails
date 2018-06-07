@@ -20,7 +20,7 @@ Implement class handler of sending emails. Requirements:
 - supporting of custom args and kwargs
 - *(should have two types of sending strategy - sync and async(using celery))?* - can be moved to **Second implementation** but should be in mind at the time of realization.
 
-Implement class-registry that register email classes. Implement our own (http://code.saghul.net/index.php/2011/01/09/implementing-registry-pattern-with-class-decorators/) or use existing library (https://pypi.org/project/class-registry/).
+Implement class-registry that register email classes. Implement our [own](http://code.saghul.net/index.php/2011/01/09/implementing-registry-pattern-with-class-decorators/) or use [existing library](https://pypi.org/project/class-registry/).
 Requirements:
 - must support decorator pattern
 
