@@ -2,9 +2,14 @@
 
 The main target - create easy to use and flexible library for creating and sending emails. Big emphasis on flexibility.
 
-Under the hood we should use django infrastructure.
+The main target frameworks - django and flask. But users can add support for they own sending backend.
 
 ## First implementation
+
+Implement sending emails backends for
+- base
+- django
+- flask
 
 Implement abstract class for next two classes
 
