@@ -1,9 +1,9 @@
 from django.views.generic.base import View
 from django.http import HttpResponse
-from .simple_email import SimpleEmailHandler, Register, get_send_meth
+from .simple_email import SimpleEmailHandler, Register, get_email_class
 
 
-mail = get_send_meth()
+mail = get_email_class()
 
 
 @Register.register_text('test')
