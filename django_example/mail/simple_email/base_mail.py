@@ -78,8 +78,8 @@ class Base(HTMLEmail):
 
     def _sync_send(self, subject, template, context):
         ssl, msg = self._prepare_message(subject, template, context)
-        # ssl.sendmail(self.from_email, self.to, msg.as_string())
-        # ssl.quit()
+        ssl.sendmail(self.from_email, self.to, msg.as_string())
+        ssl.quit()
         print(msg)
     def send_mail(self, *args, **kwargs):
         # if async:

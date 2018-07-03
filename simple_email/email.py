@@ -36,22 +36,33 @@ class HTMLEmail(abc.ABC):
             raise TypeError('from_email must be str type, got {} '
                             'type'.format(type(val).__name__))
 
-    @property
+    # @property
+    # @abc.abstractmethod
+    # def to(self):
+    #     return self._to
+    #
+    # @to.setter
+    # @abc.abstractmethod
+    # def to(self, val):
+    #     if isinstance(val, (list, tuple)):
+    #         self._to = val
+    #     else:
+    #         raise TypeError('from_email must be list or tuple type, got {} '
+    #                         'type'.format(type(val).__name__))
     @abc.abstractmethod
-    def to(self):
-        return self._to
+    def thread_send(self, to, **kwargs):
+        pass
 
-    @to.setter
     @abc.abstractmethod
-    def to(self, val):
-        if isinstance(val, (list, tuple)):
-            self._to = val
-        else:
-            raise TypeError('from_email must be list or tuple type, got {} '
-                            'type'.format(type(val).__name__))
+    def get_message(self, to, **kwargs):
+        pass
 
     @abc.abstractmethod
-    def send_mail(self):
+    def sync_send(self, to, **kwargs):
+        pass
+
+    @abc.abstractmethod
+    def async_send(self, to, **kwargs):
         pass
 
     def get_context(self):

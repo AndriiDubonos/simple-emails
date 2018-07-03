@@ -2,6 +2,7 @@
 import reprlib
 from itertools import chain
 from .email import HTMLEmail
+from collections.abc import Iterable
 
 
 class InstanceException(Exception):
@@ -113,9 +114,22 @@ class Register(metaclass=_SingletonRegisterMeta):
 class SimpleEmailHandler:
     @classmethod
     def handle(cls, name, **kwargs):
-        # try:
-        mail_cls = Register[name]
-        print(Register)
-        mail_cls().send_mail(**kwargs)
-        # except Exception as e:
-        #     print("sending email fail by exception {}".format(sys.exc_info()))
+        to = kwargs.pop('to', None)
+        mail_cls = Register[name]()
+        if isinstance(to, str):
+            to = [to]
+        elif isinstance(to, Iterable):
+            pass
+        else:
+            raise TypeError(
+                '"to" must by str or Iterable type. Got {} type'.format(
+                    type(to).__name__))
+        async = kwargs.pop("async", False)
+        thread = kwargs.pop('threaded', False)
+        if async:
+            thread = False
+            return mail_cls.async_send(to, **kwargs)
+        elif thread:
+            return mail_cls.thread_send(to, **kwargs)
+        else:
+            return mail_cls.sync_send(to, **kwargs)

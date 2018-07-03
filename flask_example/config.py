@@ -1,0 +1,12 @@
+
+TEMPLATE_FOLDER ='templates'
+DEBUG = True
+MAIL_SERVER = 'smtp.gmail.com'
+MAIL_PORT = 465
+MAIL_USE_TLS = False
+MAIL_USE_SSL = True
+MAIL_USERNAME = "Denizantip"
+MAIL_PASSWORD = 'vrreeigzelljnogk'
+MAIL_DEFAULT_SENDER = None
+MAIL_MAX_EMAILS = None
+MAIL_ASCII_ATTACHMENTS = False
