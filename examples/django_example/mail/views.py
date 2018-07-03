@@ -1,6 +1,6 @@
 from django.views.generic.base import View
 from django.http import HttpResponse
-from .simple_email import SimpleEmailHandler, Register, get_email_class
+from simple_email import SimpleEmailHandler, Register, get_email_class
 
 
 mail = get_email_class()
